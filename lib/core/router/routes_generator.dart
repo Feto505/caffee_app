@@ -1,12 +1,13 @@
 import 'package:coffee_app/core/router/pages_routes.dart';
-import 'package:coffee_app/features/home_screen.dart';
-import 'package:coffee_app/features/item_details.dart';
-import 'package:coffee_app/features/main_map_screen.dart';
-import 'package:coffee_app/features/onboarding_screen.dart';
+import 'package:coffee_app/features/tabs_screen/home_screen/home_screen.dart';
+import 'package:coffee_app/features/widgets/item_details.dart';
+import 'package:coffee_app/features/map_folder/main_map_screen.dart';
+import 'package:coffee_app/features/on_boarding/onboarding_screen.dart';
 import 'package:coffee_app/features/order_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/route_view.dart';
+import '../../features/map_folder/route_view.dart';
+import '../../features/widgets/main_navigation_screen.dart';
 
 class RoutesGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -22,6 +23,7 @@ class RoutesGenerator {
       case PagesRoutes.orderScreen:return MaterialPageRoute(builder: (context) => OrderScreen(), settings: settings,);
       case PagesRoutes.mapScreen:return MaterialPageRoute(builder: (context) => MapScreen(), settings: settings,);
       case PagesRoutes.mainMapScreen:return MaterialPageRoute(builder: (context) => MainMapScreen(), settings: settings,);
+      case PagesRoutes.layoutScreen:return MaterialPageRoute(builder: (context) => MainNavigationScreen(), settings: settings,);
 
 
       default:

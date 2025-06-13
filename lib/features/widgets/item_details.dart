@@ -6,7 +6,7 @@ import 'package:coffee_app/core/utils/app_icons.dart';
 import 'package:coffee_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../data/coffee_item.dart';
+import '../../data/coffee_item.dart';
 
 class ItemDetailsScreen extends StatefulWidget {
   const ItemDetailsScreen({super.key});

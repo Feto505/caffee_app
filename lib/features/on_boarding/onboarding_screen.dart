@@ -74,7 +74,7 @@ class OnboardingScreen extends HookWidget {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, PagesRoutes.homeScreen);
+                      Navigator.pushReplacementNamed(context, PagesRoutes.layoutScreen);
                     },
                     child: const Text(
                       'Get Started',

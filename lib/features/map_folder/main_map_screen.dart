@@ -1,13 +1,13 @@
 import 'package:coffee_app/core/utils/app_icons.dart';
 import 'package:coffee_app/core/utils/text_styles.dart';
+import 'package:coffee_app/features/map_folder/route_view.dart';
 import 'package:coffee_app/features/progress_tab_bar.dart';
-import 'package:coffee_app/features/route_view.dart';
 import 'package:flutter/material.dart';
 
 
-import '../core/common/get_responsive_height_and_width.dart';
-import '../core/utils/app_assets.dart';
-import '../core/utils/app_colors.dart';
+import '../../core/common/get_responsive_height_and_width.dart';
+import '../../core/utils/app_assets.dart';
+import '../../core/utils/app_colors.dart';
 
 class MainMapScreen extends StatelessWidget {
   const MainMapScreen({super.key});
