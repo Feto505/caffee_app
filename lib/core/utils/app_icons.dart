@@ -9,5 +9,6 @@ class AppIcons {
   static const IconData arrowRight = Icons.arrow_forward_ios;
   static const IconData searchIcon = Icons.search;
   static const IconData filterIcon = Icons.tune;
+  static const IconData phoneIcon = Icons.phone;
 
 }

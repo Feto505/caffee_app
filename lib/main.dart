@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
         onGenerateRoute: RoutesGenerator.onGenerateRoute,
-        initialRoute: PagesRoutes.homeScreen
+        initialRoute: PagesRoutes.onBoarding
     );
   }
 }

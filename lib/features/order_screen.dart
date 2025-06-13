@@ -1,4 +1,5 @@
 import 'package:coffee_app/core/common/get_responsive_height_and_width.dart';
+import 'package:coffee_app/core/router/pages_routes.dart';
 import 'package:coffee_app/core/utils/app_assets.dart';
 import 'package:coffee_app/core/utils/app_colors.dart';
 import 'package:coffee_app/core/utils/app_icons.dart';
@@ -267,7 +268,9 @@ class OrderScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, PagesRoutes.mainMapScreen);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryColor,
                   padding: EdgeInsets.symmetric(vertical: responsiveHeight(16)),

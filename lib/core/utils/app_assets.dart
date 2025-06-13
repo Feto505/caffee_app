@@ -9,6 +9,8 @@ abstract class ImageAssets {
   static const String banner = "$imagePath/Banner.png";
   static const String image1 = "$imagePath/Image.png";
   static const String image2 = "$imagePath/Image1.png";
+  static const String bicycle = "$iconPath/bicycle.png";
+
 }
 abstract class IconsAssets {
   static const String bicycle = "$iconPath/bicycle.png";

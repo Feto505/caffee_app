@@ -210,47 +210,49 @@ class HomeScreen extends HookWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Image.asset(
-                                        item.imagePath,
-                                        height: responsiveHeight(128),
-                                        width: double.infinity,
-                                        fit: BoxFit.cover,
+                                Expanded(
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Image.asset(
+                                          item.imagePath,
+                                          height: responsiveHeight(128),
+                                          width: double.infinity,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
 
-                                    Positioned(
-                                      top: 0,
-                                      right: 0,
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(horizontal: responsiveWidth(10), vertical: responsiveHeight(6)),
-                                        decoration: BoxDecoration(
-                                          color: Colors.black26,
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(24),
-                                            bottomLeft: Radius.circular(12),
-                                            topRight: Radius.circular(16),
-                                            bottomRight: Radius.circular(0),
+                                      Positioned(
+                                        top: 0,
+                                        right: 0,
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(horizontal: responsiveWidth(10), vertical: responsiveHeight(6)),
+                                          decoration: BoxDecoration(
+                                            color: Colors.black26,
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(24),
+                                              bottomLeft: Radius.circular(12),
+                                              topRight: Radius.circular(16),
+                                              bottomRight: Radius.circular(0),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children:  [
+                                              Icon(AppIcons.favourite, color: AppColors.yellowColor, size: 16),
+                                              SizedBox(width: responsiveWidth(4)),
+                                              Text(
+                                                item.rate.toString(),
+                                                style: TextStyle(color:AppColors.whiteColor),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children:  [
-                                            Icon(AppIcons.favourite, color: AppColors.yellowColor, size: 16),
-                                            SizedBox(width: responsiveWidth(4)),
-                                            Text(
-                                              item.rate.toString(),
-                                              style: TextStyle(color:AppColors.whiteColor),
-                                            ),
-                                          ],
-                                        ),
                                       ),
-                                    ),
 
-                                  ],
+                                    ],
+                                  ),
                                 ),
                                 SizedBox(height: responsiveHeight(8)),
                                  Text(

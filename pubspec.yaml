@@ -13,6 +13,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_hooks: ^0.21.2
   flutter_svg: ^2.1.0
+  google_maps_flutter: ^2.12.2
+  geolocator: ^11.0.0
+  permission_handler: ^11.3.1
+  flutter_polyline_points: ^2.1.0
+  location:
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +32,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svg/
+    - assets/map_styles/
 
   fonts:
     - family: Sora
