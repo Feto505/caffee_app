@@ -1,3 +1,4 @@
+import 'package:coffee_app/core/router/pages_routes.dart';
 import 'package:coffee_app/core/utils/app_assets.dart';
 import 'package:coffee_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +74,7 @@ class OnboardingScreen extends HookWidget {
                       ),
                     ),
                     onPressed: () {
+                      Navigator.pushReplacementNamed(context, PagesRoutes.homeScreen);
                     },
                     child: const Text(
                       'Get Started',

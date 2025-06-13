@@ -1,8 +1,13 @@
+import 'package:coffee_app/core/common/get_responsive_height_and_width.dart';
+import 'package:coffee_app/core/router/pages_routes.dart';
+import 'package:coffee_app/core/utils/app_icons.dart';
+import 'package:coffee_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../core/utils/app_colors.dart';
 import '../core/utils/app_assets.dart';
+import '../data/mock_coffee_data.dart';
 
 class HomeScreen extends HookWidget {
   const HomeScreen({super.key});
@@ -30,174 +35,146 @@ class HomeScreen extends HookWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24), vertical: responsiveHeight(24)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Header
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                      Text(
+                        'Location',
+                        style: AppTextStyles.Sora_400_12.copyWith(color: AppColors.lightWhiteColor)
+                      ),
+                      SizedBox(height: responsiveHeight(4)),
+                      Row(
+                        children: [
                           Text(
-                            'Location',
-                            style: TextStyle(
-                              color: AppColors.whiteColor,
-                              fontSize: 12,
-                            ),
+                            'Bilzen, Tanjungbalai',
+                            style: AppTextStyles.Sora_600_14.copyWith(color: AppColors.whiteColor)
                           ),
-                          SizedBox(height: 4),
-                          Row(
-                            children: [
-                              Text(
-                                'Bilzen, Tanjungbalai',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color: Colors.white,
-                              ),
-                            ],
+                          Icon(
+                            AppIcons.arrowDown,
+                            color: AppColors.whiteColor,
                           ),
                         ],
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
-
+                  SizedBox(height: responsiveHeight(24)),
                   // Search & Filter
                   Row(
                     children: [
                       Expanded(
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
                           decoration: BoxDecoration(
-                            color: AppColors.greyDarkColor,
+                            color: AppColors.lightWhite2Color,
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          child: const TextField(
+                          child: TextField(
                             style: TextStyle(color: AppColors.whiteColor),
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Search coffee',
-                              hintStyle: TextStyle(color: Colors.white54),
+                              hintStyle:AppTextStyles.Sora_400_14.copyWith(color: AppColors.lightWhiteColor),
                               icon: Icon(
-                                Icons.search,
+                                AppIcons.searchIcon,
                                 color: AppColors.whiteColor,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: responsiveWidth(12)),
                       Container(
                         decoration: BoxDecoration(
                           color: AppColors.primaryColor,
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        padding: const EdgeInsets.all(12),
+                        padding: EdgeInsets.symmetric(horizontal: responsiveWidth(12),vertical: responsiveHeight(12)),
                         child: const Icon(
-                          Icons.tune,
+                          AppIcons.filterIcon,
                           color: AppColors.whiteColor,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: responsiveHeight(24)),
 
                   // Promo Card
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                        image: AssetImage(ImageAssets.banner),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    child: Row(
+                    padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24),vertical: responsiveHeight(16)),
+                    
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(ImageAssets.banner),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      'Promo',
-                                      style: TextStyle(
-                                        color: AppColors.whiteColor,
-                                      ),
-                                    ),
-                                    SizedBox(height: 8),
-                                    Text(
-                                      'Buy one get\none FREE',
-                                      style: TextStyle(
-                                        color: AppColors.whiteColor,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                        height: 1.3,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                        Container(
+
+                          padding: EdgeInsets.symmetric(horizontal: responsiveWidth(8)),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(6)
+                          ),
+
+                          child: Text(
+                            'Promo',
+                            style: AppTextStyles.Sora_400_16.copyWith(color: AppColors.whiteColor),
+
                           ),
                         ),
-                        const SizedBox(width: 16),
-                        // Image.asset(
-                        //   'assets/images/coffee_promo.png',
-                        //   width: 80,
-                        //   height: 80,
-                        //   fit: BoxFit.cover,
-                        // ),
+                        SizedBox(height: responsiveHeight(8)),
+                        Text(
+                          'Buy one get\none FREE',
+                          style: AppTextStyles.Sora_600_20.copyWith(
+                            color: AppColors.whiteColor,
+                            fontSize: 32,
+                            height: 1.3,
+                          )
+
+                        ),
                       ],
                     ),
                   ),
 
-                  const SizedBox(height: 24),
+                  SizedBox(height: responsiveHeight(24)),
 
                   // Tabs
                   SizedBox(
-                    height: 40,
+                    height: responsiveHeight(29),
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: categories.length,
                       itemBuilder: (context, index) {
                         final isSelected = selectedTab.value == index;
                         return Padding(
-                          padding: const EdgeInsets.only(right: 12),
+                          padding: EdgeInsets.only(right: responsiveWidth(8)),
                           child: GestureDetector(
                             onTap: () => selectedTab.value = index,
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              padding: EdgeInsets.symmetric(horizontal: responsiveWidth(12)),
                               decoration: BoxDecoration(
                                 color: isSelected
                                     ? AppColors.primaryColor
-                                    : AppColors.greyDarkColor,
+                                    : AppColors.whiteColor,
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               alignment: Alignment.center,
                               child: Text(
                                 categories[index],
-                                style: TextStyle(
+                                style:AppTextStyles.Sora_400_14.copyWith(
                                   color: isSelected
                                       ? AppColors.whiteColor
-                                      : AppColors.whiteColor,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                      : AppColors.greyDarkColor,
+                                )
                               ),
                             ),
                           ),
@@ -205,69 +182,116 @@ class HomeScreen extends HookWidget {
                       },
                     ),
                   ),
-
-                  const SizedBox(height: 16),
+                  SizedBox(height: responsiveHeight(16)),
 
                   // GridView
                   Expanded(
                     child: GridView.builder(
-                      itemCount: 4,
+                      itemCount: coffeeItems.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 3 / 4,
-                            crossAxisSpacing: 16,
-                            mainAxisSpacing: 16,
+                            childAspectRatio: 4 / 5,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
                           ),
                       itemBuilder: (context, index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.greyDarkColor,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          padding: const EdgeInsets.all(8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(12),
-                                child: Image.asset(
-                                  ImageAssets.image1,
-                                  height: 100,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              const Text(
-                                'Caffe Mocha',
-                                style: TextStyle(
-                                  color: AppColors.whiteColor,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const Text(
-                                'Deep Foam',
-                                style: TextStyle(color: AppColors.whiteColor),
-                              ),
-                              const SizedBox(height: 8),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Text(
-                                    '\$4.53',
-                                    style: TextStyle(
-                                      color: AppColors.whiteColor,
-                                      fontWeight: FontWeight.bold,
+                        final item = coffeeItems[index];
+                        return InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, PagesRoutes.itemDetailsScreen,arguments: item);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              // color: AppColors.greyDarkColor,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            padding: EdgeInsets.symmetric(horizontal: responsiveWidth(8),vertical: responsiveHeight(8)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Image.asset(
+                                        item.imagePath,
+                                        height: responsiveHeight(128),
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  Icon(
-                                    Icons.add_circle,
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ],
-                              ),
-                            ],
+
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(horizontal: responsiveWidth(10), vertical: responsiveHeight(6)),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black26,
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(24),
+                                            bottomLeft: Radius.circular(12),
+                                            topRight: Radius.circular(16),
+                                            bottomRight: Radius.circular(0),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children:  [
+                                            Icon(AppIcons.favourite, color: AppColors.yellowColor, size: 16),
+                                            SizedBox(width: responsiveWidth(4)),
+                                            Text(
+                                              item.rate.toString(),
+                                              style: TextStyle(color:AppColors.whiteColor),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+                                SizedBox(height: responsiveHeight(8)),
+                                 Text(
+                                  item.name,
+                                  style: AppTextStyles.Sora_600_16
+
+                                ),
+                                 Text(
+                                  item.subTitle,
+                                  style: AppTextStyles.Sora_400_12.copyWith(
+                                    color: AppColors.lightWhiteColor
+                                  )
+                                ),
+                                SizedBox(height: responsiveHeight(4)),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children:  [
+                                    Text(
+                                      '\$${item.price.toStringAsFixed(2)}',
+                                      style: AppTextStyles.Sora_600_18
+
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(1),
+                                      decoration: BoxDecoration(
+
+                                        borderRadius: BorderRadius.circular(8),
+                                        color: AppColors.primaryColor
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          AppIcons.addIcon,
+                                          color: AppColors.whiteColor,
+                                          size: 24,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
@@ -284,7 +308,7 @@ class HomeScreen extends HookWidget {
         currentIndex: selectedTab.value,
         onTap: (index) => selectedTab.value = index,
         selectedItemColor: AppColors.primaryColor,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: AppColors.lightWhiteColor,
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
@@ -292,12 +316,16 @@ class HomeScreen extends HookWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Cart',
+            icon: ImageIcon(AssetImage(IconsAssets.favoriteIcon)),
+            label: 'favorite',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
+            icon: ImageIcon(AssetImage(IconsAssets.bagIcon)),
+            label: 'bag',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage(IconsAssets.notificationIcon)),
+            label: 'notification',
           ),
         ],
       ),

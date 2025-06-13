@@ -1,5 +1,6 @@
 import 'package:coffee_app/core/router/pages_routes.dart';
 import 'package:coffee_app/features/home_screen.dart';
+import 'package:coffee_app/features/item_details.dart';
 import 'package:coffee_app/features/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,8 @@ class RoutesGenerator {
 
       case PagesRoutes.homeScreen:
         return MaterialPageRoute(builder: (context) => HomeScreen(), settings: settings,);
+      case PagesRoutes.itemDetailsScreen:
+        return MaterialPageRoute(builder: (context) => ItemDetailsScreen(), settings: settings,);
 
       default:
         return unDefinedRoute();
