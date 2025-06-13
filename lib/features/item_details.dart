@@ -1,4 +1,5 @@
 import 'package:coffee_app/core/common/get_responsive_height_and_width.dart';
+import 'package:coffee_app/core/router/pages_routes.dart';
 import 'package:coffee_app/core/utils/app_assets.dart';
 import 'package:coffee_app/core/utils/app_colors.dart';
 import 'package:coffee_app/core/utils/app_icons.dart';
@@ -176,7 +177,9 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
                   SizedBox(width: responsiveWidth(56),),
                   Expanded(
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, PagesRoutes.orderScreen,arguments: item);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primaryColor,
                           padding: EdgeInsets.symmetric(vertical: responsiveHeight(16)),
