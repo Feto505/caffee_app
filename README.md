@@ -1,16 +1,59 @@
-# coffee_app
+# ☕ Coffee App
 
-A new Flutter project.
+تطبيق موبايل أنيق لمحبي القهوة، تم تطويره باستخدام Flutter، يحتوي على واجهة جذابة وتجربة مستخدم سلسة.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 صور من التطبيق
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![image](https://github.com/user-attachments/assets/e34d6fc7-5b57-4aee-9adc-d048dc2e0dd5)
+![image](https://github.com/user-attachments/assets/2453b16b-6e28-43a2-8a8d-0994c5a64cac)
+ ![image](https://github.com/user-attachments/assets/e1bb4047-0982-4744-aba2-3247d2d1621b)
+![image](https://github.com/user-attachments/assets/aed0653c-b4f7-4dc1-a457-0a7801aafc90)
+![image](https://github.com/user-attachments/assets/675c4e80-dfb6-4b0b-9775-8d69ed8fbdb0)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+---
+
+## 🎯 الميزات
+
+- شاشة Onboarding ترحيبية.
+- واجهة رئيسية تعرض منتجات القهوة.
+- تنقل باستخدام Bottom Navigation.
+- صفحات مفضلة، السلة، التنبيهات.
+- تصميم جميل باستخدام الألوان الداكنة.
+- استخدام Flutter Hooks.
+- استخدام الخارطة مع امكانية عرض موقع اليوزر وموقع المتجر وكذلك PolyLins
+
+---
+
+## 📹 فيديو توضيحي
+
+
+
+
+https://github.com/user-attachments/assets/923b18c6-f664-4fef-8561-03b52429e638
+
+
+
+
+
+---
+
+## 🔧 التقنيات المستخدمة
+
+- Flutter
+- Dart
+- Flutter Hooks
+- BottomNavigationBar
+- Custom Widgets
+- Google Map
+
+---
+
+## 📂 تشغيل المشروع
+
+```bash
+flutter pub get
+flutter run
